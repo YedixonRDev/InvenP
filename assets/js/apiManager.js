@@ -64,8 +64,8 @@ class APIHandler {
 }
   
 
-const apiBaseURL = 'http://localhost:5200/';
-//const apiBaseURL = 'https://motorepuestosapirest-production.up.railway.app/';
+//const apiBaseURL = 'http://localhost:5200/';
+const apiBaseURL = 'https://98ec-186-168-84-43.ngrok-free.app';
 const apiHeaders = {
    'Content-Type': 'application/json',
 };
