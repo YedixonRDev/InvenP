@@ -25,7 +25,7 @@
 					<ul class="main-menu__list">
 						<li class="main-menu__item main-menu__item--submenu--menu main-menu__item--has-submenu moto_xl_header_menu_li">
 							<a href="index" class="main-menu__link">
-								Inicio
+								Inicios
 							</a>	
 						</li>
 						<li class="main-menu__item main-menu__item--submenu--menu main-menu__item--has-submenu moto_xl_header_menu_li">
