@@ -34,7 +34,7 @@
                 }
 
             }  
-            echo 'hoy soy error'; 
+            echo 'Error 404'; 
         }
 
     }
