@@ -1,6 +1,19 @@
-<div class="site">
-	<?php require 'components/template/header.php';  ?>
-	<?php require 'components/client/products/listProducts.php';  ?>
-	<?php require 'components/template/loader.php';  ?>
-	<?php require 'components/template/footer.php';  ?>
+<div class="product">
+    <div class="tableProduct">
+        <div> 
+            <?php 
+                require 'components/products/TableProduct.php';
+                $NewTableProduct->Render();
+            ?>
+        </div>
+    </div>
 </div>
+
+    <div class="formProduct">
+        <div> 
+            <?php 
+                require 'components/products/FormProduct.php';
+                $NewFormProduct->Render();
+            ?>
+        </div>
+    </div>    

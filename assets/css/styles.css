@@ -1,0 +1,263 @@
+/*Estilos de Index*/
+container {
+    padding:10px ;
+}
+.Box{
+    padding: 10px;
+}
+.containerBoxTable{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.containerTable{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.Table {
+    width: 160px;
+    height: 110px;
+    background-color: #f1f2f6;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #a4b0be;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Table:hover {
+    background-color: #ced6e0
+}
+
+.EstadoMesa{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.MesasBtn {
+    display: flex;
+    justify-content: center; 
+}
+.Table img {
+    width: 80px; 
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+
+/*Estilos de caja*/
+.BoxComponent{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.BoxComponent .Counter{
+    width: 100%;
+    height: 50px;
+    background-color: #1f1f1f;
+    padding-left: 10px; 
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+}
+.BoxComponent .Btns{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.BoxComponent .Btns .btnActions{
+    min-width: 48%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.BoxComponent .SelectPay{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.BoxComponent button{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+
+.fondo{
+    width: 99%;
+    height: 18%;
+    background-color:#a4b0be;
+    border-radius: 8px;
+}
+.form {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.btn button {
+    padding: 10px 80px;
+    background-color:  #f1f2f6;
+    border:2px solid #a4b0be;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 15px;
+    
+}
+.btn button:hover{
+    background-color: #a4b0be;
+    color: white;
+}
+.btn i{
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+.btn1:hover i {
+    color: white;
+
+}
+.btn2:hover i {
+    color: white;
+
+}
+.form label {
+    font-size: 24px;
+}
+
+select {
+    width: 60%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.total {
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.total i {
+    position: absolute;
+    margin-right: 10px;
+    color: #a4b0be;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.total input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    padding-left: 30px;
+    
+}
+
+.btnVenta button {
+    padding: 8px 60px;
+    background-color:  #f1f2f6;
+    border:2px solid #a4b0be;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.btnVenta button:hover{
+    background-color: #a4b0be;
+    color: white;
+}
+ 
+/*Productos*/
+
+.product{
+    display: flex;
+}
+.tableProduct{
+    width: calc(100% - 400px);
+    height: 100%;
+    padding: 5px;
+
+}
+.formProduct{
+    width: 400px;
+    height: 100%;
+    padding: 5px;
+}
+.btnProduct{
+    margin: 5px;
+   
+}
+.btnRegister,
+.btnCancel {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+/* Estilos de Nuevos Gastos */
+.nuevoGastos {
+    display: flex;
+}
+
+.tableNewGastos {
+    width: calc(100% - 400px); 
+    height: 100%;
+    padding: 5px;
+
+}
+
+.formNewGastos {
+    width: 400px; 
+    height: 100%;
+    padding: 5px;
+
+}

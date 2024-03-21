@@ -1,18 +1,12 @@
-<?php
-    session_start();     
+<?php  
     $listRoutes = array(
-        'prueba',
         'index',
-        'perfil',
-        'login',
-        'admin',
-        'contacto',
-        'carrito',
-        'nosotros',
-        'producto',
-        'productos',
-        'pago',
-        'admin'
+        'ventaCaja',
+        'cierreCaja',
+        'nuevoGastos',
+        'reporteGastos',
+        'productos'
+  
     );
     foreach($listRoutes as $route) {
         require 'route.'.$route.'.php';
