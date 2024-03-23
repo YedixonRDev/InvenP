@@ -1,7 +1,6 @@
 <?php
     require "../models/products.php";
-
-
+   
     switch ($_SERVER['REQUEST_METHOD']) {
         case 'GET':
             petition_Get();
@@ -16,7 +15,6 @@
             petition_Delete();
             break;
     }
-
 
     function petition_Get(){
         $products = new Products;
@@ -47,6 +45,8 @@
         $products->delete('');
         
     }
+
+    
   
 
 ?>
