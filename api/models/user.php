@@ -82,12 +82,46 @@ class User {
         echo json_encode($response);
     }
 
-    function update($data){
-        echo 'actualizando';
+    function update($id){
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
+        $prepare_sql = array();
+        $sql = "UPDATE  `usuarios` SET";
+        foreach ($data as $campo => $valor) { 
+            $prepare_sql[] ="$campo = '$valor'";
+        }
+        $sql .= " ".implode(", ",$prepare_sql);
+        $sql .= "  WHERE `id` = '$id'";
+        $response['process'] ='Update User';
+        try {
+            $conection = new conn;
+            $conection->query($sql);
+            $response['status'] = true;
+            http_response_code(200);
+        } catch (Exception $err) {
+            $response['status']= false;
+            $response['sql'] =$sql;
+            $response['error'] = $err->getMessage();
+            http_response_code(401);
+        }
+        echo json_encode($response);
     }
 
     function delete($id){
-        echo 'eliminando';
+        $response['process'] ='Delete User';
+        try {
+            $conection = new conn;
+            $sql = "DELETE FROM `usuarios` WHERE `id` = '$id' ";
+            $conection->query($sql);
+            $response['status'] = true;
+            http_response_code(200);
+        } catch (Exception $err) {
+            $response['status']= false;
+            $response['sql'] =$sql;
+            $response['error'] = $err->getMessage();
+            http_response_code(401);
+        }
+        echo json_encode($response);
     }
 }
 ?>

@@ -36,15 +36,19 @@
 
 
     function petition_Put(){ 
+        if (isset($_GET['id']))
         $table = new Table;
-        $table->update('');
+        $table->update($_GET['id']);
         
     }
 
 
     function petition_Delete(){
-        $table = new Table;
-        $table->delete('');
+        if (isset($_GET['id'])){
+            $table = new Table;
+            $table->delete($_GET['id']);
+        }
+        
         
     }
   

@@ -36,17 +36,17 @@
 
 
     function petition_Put(){ 
-        $gastos = new Gastos;
-        $gastos->update('');
-        
+        if (isset($_GET['id'])) {
+            $gastos = new Gastos;
+            $gastos->update($_GET['id']);
+        }
     }
 
 
     function petition_Delete(){
-        $gastos = new Gastos;
-        $gastos->delete('');
-        
+        if (isset($_GET['id'])) {
+            $gastos = new Gastos;
+            $gastos->delete($_GET['id']);
+        }
     }
-  
-
 ?>

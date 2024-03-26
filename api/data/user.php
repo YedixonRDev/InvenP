@@ -36,15 +36,19 @@
 
 
     function petition_Put(){ 
+        if (isset($_GET['id'])){
         $user = new User;
-        $user->update('');
-        
+        $user->update($_GET['id']);
+        }    
     }
 
 
     function petition_Delete(){
-        $user = new User;
-        $user->delete('');
+        if (isset($_GET['id'])){
+            $user = new User;
+            $user->delete($_GET['id']);
+        }
+        
         
     }
   

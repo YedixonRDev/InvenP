@@ -34,19 +34,17 @@
 
 
     function petition_Put(){ 
-        $products = new Products;
-        $products->update('');
-        
+        if (isset($_GET['id'])){
+           $products = new Products;
+            $products->update($_GET['id']); 
+        }
     }
 
 
     function petition_Delete(){
-        $products = new Products;
-        $products->delete('');
-        
+        if (isset($_GET['id'])) {
+            $products = new Products;
+            $products->delete($_GET['id']);
+        }
     }
-
-    
-  
-
 ?>

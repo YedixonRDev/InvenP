@@ -36,15 +36,21 @@
 
 
     function petition_Put(){ 
-        $ventas = new Ventas;
-        $ventas->update('');
+        if (isset($_GET['id'])) {
+            $ventas = new Ventas;
+            $ventas->update($_GET['id']);
+        }
+        
         
     }
 
 
     function petition_Delete(){
-        $ventas = new Ventas;
-        $ventas->delete('');
+        if (isset($_GET['id'])) {
+            $ventas = new Ventas;
+            $ventas->delete($_GET['id']);
+        }
+        
         
     }
   

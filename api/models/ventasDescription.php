@@ -7,7 +7,7 @@ class VentasDescription {
 
     function insert(){
 
-        $response['process'] ='Insert VentasDescription';
+        $response['process'] ='Insert Ventas-Description';
 
         try{ 
 
@@ -39,7 +39,7 @@ class VentasDescription {
     }
 
     function select_all(){
-        $response['process'] ='select all VentasDescription';
+        $response['process'] ='select all Ventas-Description';
         try {
             $conection = new conn;
             $sql = "SELECT * FROM `ventas_descripcion` ";
@@ -63,7 +63,7 @@ class VentasDescription {
     }
 
     function select_id($id){
-        $response['process'] ='select all Products';
+        $response['process'] ='select all Ventas-Description';
         try {
             $conection = new conn;
             $sql = "SELECT * FROM `ventas_descripcion` WHERE `id` = '$id'";
@@ -86,12 +86,46 @@ class VentasDescription {
         echo json_encode($response);
     }
 
-    function update($data){
-        echo 'actualizando';
+    function update($id){
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
+        $prepare_sql = array();
+        $sql = "UPDATE  `ventas_descripcion` SET";
+        foreach ($data as $campo => $valor) { 
+            $prepare_sql[] ="$campo = '$valor'";
+        }
+        $sql .= " ".implode(", ",$prepare_sql);
+        $sql .= "  WHERE `id` = '$id'";
+        $response['process'] ='Update Ventas-Description';
+        try {
+            $conection = new conn;
+            $conection->query($sql);
+            $response['status'] = true;
+            http_response_code(200);
+        } catch (Exception $err) {
+            $response['status']= false;
+            $response['sql'] =$sql;
+            $response['error'] = $err->getMessage();
+            http_response_code(401);
+        }
+        echo json_encode($response);
     }
 
     function delete($id){
-        echo 'eliminando';
+        $response['process'] ='Delete Ventas-Description';
+        try {
+            $conection = new conn;
+            $sql = "DELETE FROM `ventas_descripcion` WHERE `id` = '$id' ";
+            $conection->query($sql);
+            $response['status'] = true;
+            http_response_code(200);
+        } catch (Exception $err) {
+            $response['status']= false;
+            $response['sql'] =$sql;
+            $response['error'] = $err->getMessage();
+            http_response_code(401);
+        }
+        echo json_encode($response);
     }
 }
 ?>
