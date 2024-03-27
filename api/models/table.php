@@ -8,12 +8,14 @@ class Table {
     function insert(){
 
         $response['process'] = 'Insert Table';
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
 
         try {
 
             $conection = new conn;
-            $nombre    = $_POST['nombre'];
-            $estado    = $_POST['estado'];
+            $nombre    = $data['nombre'];
+            $estado    = $data['estado'];
             $sql       = "INSERT INTO `mesas` (`id`, `nombre`, `estado`) VALUES (NULL, '$nombre', '$estado')";
             $conection->query($sql);
             $response['status'] = true;

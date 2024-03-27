@@ -1,4 +1,4 @@
-<?php
+data<?php
 
 require "../db/conection.php";
 require "../headers/header.php"; 
@@ -12,12 +12,12 @@ class VentasDescription {
         try{ 
 
             $conection  = new conn;
-            $id_venta        = $_POST['id_venta'];
-            $id_producto     = $_POST['id_producto']; 
-            $nombre_producto = $_POST['nombre_producto']; 
-            $unidades        = $_POST['unidades'];
-            $precio          = $_POST['precio'];
-            $precio_total    = $_POST['precio_total'];
+            $id_venta        = $data['id_venta'];
+            $id_producto     = $data['id_producto']; 
+            $nombre_producto = $data['nombre_producto']; 
+            $unidades        = $data['unidades'];
+            $precio          = $data['precio'];
+            $precio_total    = $data['precio_total'];
             $sql             = "INSERT INTO `ventas_descripcion` (`id`, `id_venta`, `id_producto`, `nombre_producto`, `unidades`, `precio`, `precio_total`) VALUES (NULL, '$id_venta', '$id_producto', '$nombre_producto', '$unidades', '$precio', '$precio_total')";
             $conection->query($sql);
             $response['status'] = true;

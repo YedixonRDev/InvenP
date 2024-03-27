@@ -6,32 +6,26 @@ require "../headers/header.php";
 class Gastos {
 
     function insert(){
-
         $response['process'] = 'Insert Gastos';
-
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
         try {
             $conection   = new conn;
-            $nombre      = $_POST['nombre'];
-            $descripcion = $_POST['descripcion'];
-            $monto       = $_POST['monto'];
-            $fecha       = $_POST['fecha'];
+            $nombre      = $data['nombre'];
+            $descripcion = $data['descripcion'];
+            $monto       = $data['monto'];
+            $fecha       = $data['fecha'];
             $sql         = "INSERT INTO `gastos` (`id`, `nombre`, `descripcion`, `monto`, `fecha`) VALUES (NULL, '$nombre', '$descripcion', '$monto', '$fecha')";
             $conection->query($sql);
             $response['status'] = true;
-
             http_response_code(200);
-
         } catch (Exception $err) {
             $response['status']= false;
             $response['sql'] =$sql;
             $response['error'] = $err->getMessage();
-
             http_response_code(401);
-
         }
-
         echo json_encode($response);
-        
     }
 
     function select_all(){

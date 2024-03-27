@@ -7,11 +7,13 @@ class Products {
 
     function insert(){
         $response['process'] ='Insert Products';
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
         try {
             $conection = new conn;
-            $nombre     = $_POST['nombre'];
-            $categoria  = $_POST['categoria'];
-            $precio     = $_POST['precio'];
+            $nombre     = $data['nombre'];
+            $categoria  = $data['categoria'];
+            $precio     = $data['precio'];
             $sql = "INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`) VALUES (NULL, '$nombre', '$categoria', '$precio')";
             $conection->query($sql);
             $response['status'] = true;

@@ -12,9 +12,9 @@ class Ventas {
         try {
 
             $conection  = new conn;
-            $id_venta   = $_POST['id_venta'];
-            $total      = $_POST['total']; 
-            $fecha      = $_POST['fecha']; 
+            $id_venta   = $data['id_venta'];
+            $total      = $data['total']; 
+            $fecha      = $data['fecha']; 
             $sql        = "INSERT INTO `ventas` (`id`, `id_venta`, `total`, `fecha`) VALUES (NULL, '$id_venta', '$total', '$fecha')";
             $conection->query($sql);
             $response['status'] = true;

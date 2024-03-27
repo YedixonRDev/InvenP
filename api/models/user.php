@@ -12,9 +12,9 @@ class User {
         try {
             
             $conection  = new conn;
-            $nombre     = $_POST['nombre'];
-            $correo     = $_POST['correo']; 
-            $contraseña = $_POST['contraseña']; 
+            $nombre     = $data['nombre'];
+            $correo     = $data['correo']; 
+            $contraseña = $data['contraseña']; 
             $sql        = "INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contraseña`) VALUES (NULL, '$nombre', '$correo', '$contraseña')";
             $conection->query($sql);
             $response['status'] = true;
