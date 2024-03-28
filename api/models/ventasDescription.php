@@ -8,9 +8,9 @@ class VentasDescription {
     function insert(){
 
         $response['process'] ='Insert Ventas-Description';
-
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
         try{ 
-
             $conection  = new conn;
             $id_venta        = $data['id_venta'];
             $id_producto     = $data['id_producto']; 
@@ -21,19 +21,13 @@ class VentasDescription {
             $sql             = "INSERT INTO `ventas_descripcion` (`id`, `id_venta`, `id_producto`, `nombre_producto`, `unidades`, `precio`, `precio_total`) VALUES (NULL, '$id_venta', '$id_producto', '$nombre_producto', '$unidades', '$precio', '$precio_total')";
             $conection->query($sql);
             $response['status'] = true;
-
             http_response_code(200);
-
-        } catch (Exception $err) {
-            
+        } catch (Exception $err) {   
             $response['status']= false;
             $response['sql'] =$sql;
             $response['error'] = $err->getMessage();
-
             http_response_code(401);
-
         }
-
         echo json_encode($response);
 
     }

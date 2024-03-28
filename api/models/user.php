@@ -8,9 +8,9 @@ class User {
     function insert(){
 
         $response['process'] = 'Insert User';
-        
+        $putData =   file_get_contents('php://input');
+        $data = json_decode($putData, true);
         try {
-            
             $conection  = new conn;
             $nombre     = $data['nombre'];
             $correo     = $data['correo']; 
@@ -18,18 +18,13 @@ class User {
             $sql        = "INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contraseña`) VALUES (NULL, '$nombre', '$correo', '$contraseña')";
             $conection->query($sql);
             $response['status'] = true;
-
             http_response_code(200);
-
         } catch (Exception $err) {
             $response['status']= false;
             $response['sql'] =$sql;
             $response['error'] = $err->getMessage();
-
             http_response_code(401);
-
         }  
-
         echo json_encode($response);
 
     }

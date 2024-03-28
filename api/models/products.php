@@ -27,6 +27,7 @@ class Products {
         echo json_encode($response);
     }
 
+
     function select_all(){
         $response['process'] ='select all Products';
         try {
