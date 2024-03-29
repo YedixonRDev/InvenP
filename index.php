@@ -9,6 +9,7 @@
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/css/_all-skins.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -39,6 +40,8 @@
 
    <script src="assets/js/jquery.min.js"></script>
    <script src="assets/js/bootstrap.min.js"></script>
+   <script src="assets/js/dataTables.min.js"></script>
+   <script src="assets/js/dataTables.bootstrap.min.js"></script>
    <script src="assets/js/adminlte.min.js"></script>
    <script src="assets/js/demo.js"></script>
    <script src="assets/js/apiManager.js"></script>

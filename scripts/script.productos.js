@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    loadTable();
     onSubmitFrmInsertProducts();
 });
 
@@ -28,6 +29,7 @@ const sendDataInsertProduct = (sendData) =>{ //recibe lo datos del formulario y 
     .done(function(data) {
         if (data.status) {
             insetDataSucces();
+            loadTable();
         }
     })
     .fail(function(data) {
@@ -42,4 +44,29 @@ const insetDataSucces = () =>{
 
 const frmInsertProductsClean = () =>{
     $('#frmInsertProduct')[0].reset();
+}
+
+const loadTable = () =>{
+    $('#tblProducts').dataTable(
+        {
+          "aProcessing": true,
+          "aServerSide": true,
+          dom: 'Bfrtip',
+          buttons: [ 'excelHtml5'],
+          "ajax":{
+            url: 'api/data/products.php',
+            type : "get",
+            dataType : "json",            
+            error: function(e){
+              console.log(e.responseText);  
+            }
+          },
+          "bDestroy": true,
+          "iDisplayLength": 7,
+          "columns":[
+            { data: 'nombre' },
+            { data: 'categoria' },
+            { data: 'precio' }
+          ]
+        }).DataTable();
 }
