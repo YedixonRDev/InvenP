@@ -3,7 +3,7 @@
         'index',
         'ventaCaja',
         'cierreCaja',
-        'nuevoGastos',
+        'gastos',
         'reporteGastos',
         'productos'
   

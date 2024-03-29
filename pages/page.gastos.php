@@ -1,5 +1,4 @@
-<div class="nuevoGastos">
-
+<div class="gastos">
     <div class="tableNewGastos">
     <div> 
             <?php 
@@ -8,7 +7,6 @@
             ?>
         </div>
     </div>
-
     <div class="formNewGastos">
         <div> 
             <?php 

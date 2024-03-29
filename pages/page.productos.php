@@ -7,8 +7,6 @@
             ?>
         </div>
     </div>
-</div>
-
     <div class="formProduct">
         <div> 
             <?php 
@@ -16,4 +14,5 @@
                 $NewFormProduct->Render();
             ?>
         </div>
-    </div>    
+    </div>   
+</div>
