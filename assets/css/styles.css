@@ -1,64 +1,39 @@
 /*Estilos de Index*/
-container {
+.container {
     padding:10px ;
 }
 .Box{
     padding: 10px;
 }
-.containerBoxTable{
-    width: 100%;
-    display: flex;
-    background-color: white;
-    flex-direction: column;
+.container-mesa{
+    display: inline-flex; 
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    border-radius: 10px;
+    padding: 10px
 }
-
-.containerTable {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding-bottom: 20px;
-}
-
 .Table {
-    width: 160px;
-    height: 110px;
-    background-color: #ffffff; /* Fondo blanco para el cuadro de la mesa */
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff; 
     border: 2px solid #a4b0be;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block; 
+    margin-right: 10px; 
 }
 
 .Table:hover {
-    background-color: #ced6e0
+    background-color: #c5c9d3; 
 }
 
-.EstadoMesa{
-    padding-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-}
-.MesasBtn {
-    display: flex;
-    justify-content: center; 
-}
 .Table img {
-    width: 80px; 
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: contain;
+    height: 100px; 
+    width: 100px; 
+    display: block; 
+    margin: 0 auto 10px auto; 
 }
+
 
 /*Estilos de caja*/
 .BoxComponent{
