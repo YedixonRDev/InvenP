@@ -1,0 +1,21 @@
+{
+    "useTabs": true,
+    "tabWidth": 3,
+    "singleQuote": false,
+    "semi": false,
+    "overrides": [
+      {
+        "files": "*.php",
+        "options": {
+          "parser": "php",
+          "singleQuote": false
+        }
+      },
+      {
+        "files": "*.css",
+        "options": {
+          "parser": "css"
+        }
+      }
+    ]
+  }

@@ -5,6 +5,11 @@
 .Box{
     padding: 10px;
 }
+.lineR{
+    display: flex;
+    justify-content: end;
+    gap: 10;
+}
 .container-mesa{
     display: inline-flex; 
     justify-content: center;
@@ -237,3 +242,4 @@ select {
     padding: 5px;
 
 }
+
