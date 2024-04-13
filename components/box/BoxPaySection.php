@@ -17,8 +17,9 @@
         <div class="form-group">
             <label>Elija Medio de Pago</label>
             <select class="form-control input-lg">
-                <option>option 1</option>
-                <option>option 2</option>
+                <option></option>
+                <option>Efectivo</option>
+                <option>Transferencia</option>
             </select>
         </div>
     </div>

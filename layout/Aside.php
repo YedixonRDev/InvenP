@@ -2,11 +2,11 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        
+
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree" style="padding-top: 10px">
-        
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
@@ -30,7 +30,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="gastos"><i class="fa fa-circle-o"></i> NuevosGasto </a></li>
-                    <li><a href="reporteGastos"><i class="fa fa-circle-o"></i> Reportes de Gastos</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -46,9 +45,9 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a >
+                <a>
                     <i class="fa fa-edit"></i> <span>Reportes</span>
-                    
+
                 </a>
             </li>
 

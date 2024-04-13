@@ -22,7 +22,7 @@
 											<th>Producto</th>
 											<th>Uni</th>
 											<th style="width: 100px">Precio</th>
-											<th style="width: 100px"></th>
+											<th style="width: 100px">Seleccionar</th>
 										</tr>
 									</thead>
 									<tbody id="tbodyBox">
@@ -39,8 +39,8 @@
 			</div>
 			<div class="modal-footer">
 				<div class="lineR">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary">Agregar Productos</button>
 				</div>
 			</div>
 		</div>

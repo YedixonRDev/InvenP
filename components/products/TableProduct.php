@@ -1,11 +1,13 @@
 <?php
-    class TableProduct{
+class TableProduct
+{
 
-        private $num;
-        private $onClick;
+    private $num;
+    private $onClick;
 
-        public function Render(){
-        echo 
+    public function Render()
+    {
+        echo
         '<div class="box">
             <div class="box-header">
                 <h3 class="box-title">Productos Disponibles</h3>
@@ -29,8 +31,6 @@
                 </table>
             </div>
         </div>';
-            }
     }
+}
 $NewTableProduct = new TableProduct;
-?>
-
