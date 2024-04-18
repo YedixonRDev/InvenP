@@ -1,38 +1,24 @@
 <div id="modalBox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="gridSystemModalLabel">Productos Disponibles</h4>
 			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group  ml-2 mr-2">
-							<input class="form-control" id="#" placeholder="Buscar Producto">
-						</div>
-						<div class="box">
-							<div class="box-header with-border">
-								<h3 id="tableTitle" class="box-title">Mesa 1</h3>
-							</div>
-							<div class="box-body">
-								<table class="table table-bordered table-striped">
-									<thead>
-										<tr>
-											<th>Producto</th>
-											<th>Uni</th>
-											<th style="width: 100px">Precio</th>
-											<th style="width: 100px">Seleccionar</th>
-										</tr>
-									</thead>
-									<tbody id="tbodyBox">
-
-
-
-									</tbody>
-								</table>
-							</div>
-
+			<div class="modal-body ">
+				<div class="box">
+					<div class="box-body ">
+						<div class="table-responsive">
+							<table id="modalTblProducts" class="table">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Categoría</th>
+										<th>Precio</th>
+										<th>Seleccionar</th>
+									</tr>
+								</thead>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -46,3 +32,54 @@
 		</div>
 	</div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function() {
+		loadModalTable();
+	});
+
+	const loadModalTable = () => {
+		$('#modalTblProducts').dataTable({
+			"aProcessing": true,
+			"aServerSide": true,
+			dom: 'Bfrtip',
+			buttons: ['excelHtml5'],
+			"ajax": {
+				url: 'api/data/products.php',
+				type: "get",
+				dataType: "json",
+				error: function(e) {
+					console.log(e.responseText);
+				}
+			},
+			"bDestroy": true,
+			"iDisplayLength": 7,
+			"columns": [{
+					data: 'nombre'
+				},
+				{
+					data: 'categoria'
+				},
+				{
+					data: 'precio'
+				},
+				{
+					data: null,
+					render: function(data, type, row) {
+						return '<button type="button" class="btn btn-primary" onclick="seleccionarProducto(\'' + row.nombre + '\', \'' + row.categoria + '\', \'' + row.precio + '\')">Seleccionar</button>';
+					}
+				}
+			]
+		}).DataTable();
+	}
+
+	function seleccionarProducto(nombre, categoria, precio) {
+
+		let fila = "<tr><td>#</td><td>" + nombre + "</td><td>Unidad</td><td>" + precio + "</td><td>Total</td><td></td></tr>";
+		$('#tablaVentas tbody').append(fila);
+	}
+</script>

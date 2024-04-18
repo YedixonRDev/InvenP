@@ -1,7 +1,7 @@
 <div class="BoxComponent">
     <div class="Counter">
         <div>$.</div>
-        <div>1.000.000</div>
+        <div>00.0</div>
     </div>
     <div class="Btns ">
         <button type="button" class="btn btnActions  btn-default btn-lg">

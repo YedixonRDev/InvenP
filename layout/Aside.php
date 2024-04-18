@@ -29,7 +29,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="gastos"><i class="fa fa-circle-o"></i> NuevosGasto </a></li>
+                    <li><a href="gastos"><i class="fa fa-circle-o"></i> Registrar Gastos </a></li>
                 </ul>
             </li>
             <li class="treeview">
