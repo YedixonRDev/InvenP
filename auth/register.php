@@ -29,24 +29,26 @@
    <div class="content-wrapper-register">
       <div class="register-form-box">
          <section class="content-header">
-            <h1 class="text-center">Crear Cuenta</h1>
+            <h1 class="text-center">Nuevo Usuario</h1>
          </section>
-         <form method="post">
+         <form id="frmInsertNewUser">
             <div class="form-group">
-               <label for="user">Nombre de usuario</label>
-               <input type="text" name="user" id="user" class="form-control" placeholder="Usuario" required>
+               <label for="frmInsertNewUserName">Nombre</label>
+               <input type="text" name="nombre" id="frmInsertNewUserName" class="form-control" placeholder="Nombre" required autocomplete="name">
             </div>
             <div class="form-group">
-               <label for="email">Correo Electrónico</label>
-               <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required>
+               <label for="frmInsertNewUserEmail">Correo Electrónico</label>
+               <input type="email" name="correo" id="frmInsertNewUserEmail" class="form-control" placeholder="Correo" required autocomplete="email">
             </div>
             <div class="form-group">
-               <label for="password">Contraseña</label>
-               <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
+               <label for="frmInsertNewUserPassword">Contraseña</label>
+               <input type="password" name="contraseña" id="frmInsertNewUserPassword" class="form-control" placeholder="Contraseña" required autocomplete="new-password">
             </div>
             <button type="submit" class="btn btn-primary btn-block">Crear Cuenta</button>
-            <button type="submit" class="btn btn-secondary btn-block">Ya tengo cuenta</button>
+
+            <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'login.php'">Ya tengo cuenta</button>
          </form>
+
       </div>
    </div>
 </body>

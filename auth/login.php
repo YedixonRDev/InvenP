@@ -31,22 +31,20 @@
          <section class="content-header">
             <h1 class="text-center">Iniciar Secion</h1>
          </section>
-         <form method="post">
+         <form id="frmInsertUser">
             <div class="form-group">
                <label for="email">Correo Electrónico</label>
-               <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required>
+               <input type="email" name="email" id="frmInsertEmail" class="form-control" placeholder="Correo" required>
             </div>
             <div class="form-group">
                <label for="password">Contraseña</label>
-               <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
+               <input type="password" name="password" id="frmInsertPassword" class="form-control" placeholder="Contraseña" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Iniciar Seccion</button>
-            <button type="submit" class="btn btn-secondary btn-block">Crear Cuenta</button>
+            <button type="submit" class="btn btn-secondary btn-block" onclick="window.location.href = 'register.php'">Crear Cuenta</button>
          </form>
       </div>
    </div>
 </body>
-
-</html>
 
 </html>
