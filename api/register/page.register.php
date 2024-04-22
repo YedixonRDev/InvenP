@@ -32,7 +32,7 @@
             <h1 class="text-center"> Bienvenido a InvenPRO</h1>
             <h5 class="text-center">Crear nuevo usuario</h5>
          </section>
-         <form id="frmInsertNewUser">
+         <form id="frmInsertNewUser" action="./register.php" method="post">
             <div class="form-group">
                <label for="frmInsertNewUserName">Nombre</label>
                <input type="text" name="nombre" id="frmInsertNewUserName" class="form-control" placeholder="Nombre" required autocomplete="name">
@@ -49,6 +49,9 @@
 
             <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'login.php'">Ya tengo cuenta</button>
          </form>
+         <?php
+         include("register.php");
+         ?>
 
       </div>
    </div>

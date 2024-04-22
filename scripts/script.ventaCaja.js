@@ -27,3 +27,4 @@ const loadTable = () => {
         ]
     }).DataTable();
 }
+

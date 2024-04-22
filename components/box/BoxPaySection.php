@@ -27,9 +27,32 @@
         <span class="input-group-addon">
             <i class="fa fa-dollar"></i>
         </span>
-        <input type="text" class="form-control input-lg" placeholder="Ingresa el importe">
+        <input id="montoRecibido" type="text" class="form-control input-lg" placeholder="Ingresa el importe pagado">
     </div>
+    <div id="cuentaTotal" class="hidden">0</div>
+    <button onclick="calcularVuelto()" type="button" class="btn btn-lg btn-primary btn-flat btn-block">
+        Calcular Cambio
+    </button>
+    <div id="vueltoSpan"></div>
     <button type="button" class="btn btn-lg btn-primary btn-flat btn-block">
         Completar Venta
     </button>
 </div>
+
+<script>
+    function calcularVuelto() {
+        const cuentaTotal = parseFloat(document.getElementById("cuentaTotal").textContent);
+        const montoRecibido = parseFloat(document.getElementById("montoRecibido").value);
+
+        if (!isNaN(montoRecibido)) {
+            if (montoRecibido >= cuentaTotal) {
+                const vuelto = montoRecibido - cuentaTotal;
+                document.getElementById("vueltoSpan").textContent = "El cambio es: " + vuelto.toFixed(2);
+            } else {
+                alert("El monto recibido debe ser igual o mayor que la cuenta total.");
+            }
+        } else {
+            alert("Por favor, ingrese un monto recibido válido.");
+        }
+    }
+</script>

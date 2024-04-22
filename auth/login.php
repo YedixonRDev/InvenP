@@ -31,7 +31,7 @@
          <section class="content-header">
             <h1 class="text-center">Iniciar Secion</h1>
          </section>
-         <form id="frmInsertUser">
+         <form id="frmInsertUser" method="post">
             <div class="form-group">
                <label for="email">Correo Electrónico</label>
                <input type="email" name="email" id="frmInsertEmail" class="form-control" placeholder="Correo" required>
@@ -48,3 +48,4 @@
 </body>
 
 </html>
+<script src="../scripts/script.register.js"></script>
