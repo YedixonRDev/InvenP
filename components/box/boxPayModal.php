@@ -1,13 +1,14 @@
-<div id="modalBox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="gridSystemModalLabel">Productos Disponibles</h4>
+				<h4 class="modal-title" id="myModalLabel">Productos Disponibles</h4>
 			</div>
-			<div class="modal-body ">
+			<div class="modal-body">
 				<div class="box">
-					<div class="box-body ">
+					<div class="box-body">
 						<div class="table-responsive">
 							<table id="modalTblProducts" class="table">
 								<thead>
@@ -18,21 +19,21 @@
 										<th>Seleccionar</th>
 									</tr>
 								</thead>
+								<tbody>
+									<!-- Aquí se cargarán las filas de la tabla mediante JavaScript -->
+								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<div class="lineR">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Agregar Productos</button>
-				</div>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary">Agregar Productos</button>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <script>
 	$(document).ready(function() {
@@ -47,14 +48,14 @@
 			buttons: ['excelHtml5'],
 			"ajax": {
 				url: 'api/data/products.php',
-				type: "get",
+				type: "GET",
 				dataType: "json",
 				error: function(e) {
 					console.log(e.responseText);
 				}
 			},
-			"bDestroy": true,
-			"iDisplayLength": 7,
+			"destroy": true,
+			"pageLength": 7,
 			"columns": [{
 					data: 'nombre'
 				},
@@ -71,12 +72,42 @@
 					}
 				}
 			]
-		}).DataTable();
+		});
 	}
 
 	function seleccionarProducto(nombre, categoria, precio) {
+		// Construir la fila HTML con los datos del producto seleccionado
+		let fila = '<tr>';
+		fila += '<td>#</td>';
+		fila += '<td>' + nombre + '</td>';
+		fila += '<td>' + categoria + '</td>';
+		fila += '<td>' + precio + '</td>';
+		fila += '<td><button type="button" class="btn btn-danger btnEliminar">Eliminar</button></td>';
+		fila += '</tr>';
 
-		let fila = "<tr><td>#</td><td>" + nombre + "</td><td>Unidad</td><td>" + precio + "</td><td>Total</td><td></td></tr>";
+		// Agregar la fila a la tabla de ventas
 		$('#tablaVentas tbody').append(fila);
+
+		// Calcular el nuevo total de la venta
+		calcularTotalVenta();
 	}
+
+	// Función para calcular el total de la venta
+	function calcularTotalVenta() {
+		let total = 0;
+		$('#tablaVentas tbody tr').each(function() {
+			let precio = parseFloat($(this).find('td:eq(3)').text());
+			total += precio;
+		});
+
+		// Actualizar el total de la venta en la interfaz
+		$('#totalVenta').text(total.toFixed(2));
+	}
+
+	// Evento delegado para eliminar productos
+	$('#tablaVentas').on('click', '.btnEliminar', function() {
+		$(this).closest('tr').remove();
+		// Recalcular el total de la venta después de eliminar un producto
+		calcularTotalVenta();
+	});
 </script>

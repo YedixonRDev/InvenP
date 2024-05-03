@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Ejecutar la consulta
       if ($conexion->query($consulta) === TRUE) {
-         echo "¡Registro exitoso!";
+         header("Location: page.login.php");
       } else {
          echo "Error al registrar el usuario: " . $conexion->error;
       }

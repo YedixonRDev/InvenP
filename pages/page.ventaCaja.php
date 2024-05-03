@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/modals.venta.css">
 <div class="ventaCaja container">
 	<div class="row">
 		<div class="col-md-8">

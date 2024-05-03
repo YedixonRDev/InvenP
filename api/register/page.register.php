@@ -47,7 +47,7 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block">Crear Cuenta</button>
 
-            <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'login.php'">Ya tengo cuenta</button>
+            <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'page.login.php'">Ya tengo cuenta</button>
          </form>
          <?php
          include("register.php");

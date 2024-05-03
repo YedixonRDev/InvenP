@@ -41,11 +41,11 @@
                <input type="password" name="password" id="frmInsertPassword" class="form-control" placeholder="Contraseña" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Iniciar Seccion</button>
-            <button type="submit" class="btn btn-secondary btn-block" onclick="window.location.href = 'register.php'">Crear Cuenta</button>
+            <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'page.register.php'">Crear Cuenta</button>
+
          </form>
       </div>
    </div>
 </body>
 
 </html>
-<script src="../scripts/script.register.js"></script>

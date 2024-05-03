@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/css/_all-skins.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modals.venta.css">
     <title>InvenPRO</title>
 </head>
 

@@ -1,17 +1,22 @@
 <div class="BoxComponent">
     <div class="Counter">
         <div>$.</div>
-        <div>00.0</div>
+        <div id="totalVentaContainer">
+        </div>
     </div>
+
     <div class="Btns ">
         <button type="button" class="btn btnActions  btn-default btn-lg">
             <i class="fa-solid fa-trash"></i>
             <div>Limpiar</div>
         </button>
-        <button type="button" onClick="showModalBox()" class="btn btnActions  btn-default btn-lg  ">
+        <button type="button" class="btn btnActions btn-default btn-lg" onClick="myModal()" data-toggle="modal" data-target="#myModal">
             <div>Agregar</div>
             <i class="fa-solid fa-plus"></i>
         </button>
+
+
+
     </div>
     <div class="SelectPay">
         <div class="form-group">
