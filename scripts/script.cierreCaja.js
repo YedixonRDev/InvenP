@@ -73,7 +73,3 @@ const loadTableCierreCaja = () => {
   }).DataTable();
 };
 
-
-const showModalCierreCaja  = () =>{
-  $('#modalCierreCaja').modal('show')
-}

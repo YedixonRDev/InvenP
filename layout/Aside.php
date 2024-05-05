@@ -44,13 +44,6 @@
                     <li><a href="productos"><i class="fa fa-circle-o"></i> Registrar Productos </a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a>
-                    <i class="fa fa-edit"></i> <span>Reportes</span>
-
-                </a>
-            </li>
-
         </ul>
     </section>
 </aside>

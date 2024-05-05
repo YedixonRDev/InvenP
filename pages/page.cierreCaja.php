@@ -16,5 +16,4 @@
    </div>
 </div>
 
-<?php require 'components/CierreCaja/ModalsCierreCaja.php'; ?>
-<script src="../scripts//script.cierreCaja.js"></script>
+<script src="../scripts/script.cierreCaja.js"></script>

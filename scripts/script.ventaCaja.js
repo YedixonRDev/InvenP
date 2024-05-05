@@ -1,3 +1,47 @@
+// $(document).ready(function() {
+//     onSubmitFrmInsertVentas();
+// });
+
+// const onSubmitFrmInsertVentas = () => {
+//     $('#frmInsertVentas').submit(function(e) {
+//         e.preventDefault();
+//         let venta = parseFloat($('#frmInsertTotalVenta').text());
+//         let pago = $('#frmInsertMetodoPago option:selected').text();
+//         let data = {
+//             "venta": venta,
+//             "pago": pago
+//         };
+//         sendDataInsertVentas(data);
+//     });
+// };
+
+// const sendDataInsertVentas = (sendData) => {
+//     $.ajax({
+//         type: 'POST',
+//         url: 'api/data/ventas.php',
+//         data: JSON.stringify(sendData),
+//         contentType: 'application/json',
+//         dataType: 'json'
+//     })
+//     .done(function(data) {
+//         if (data.status) {
+//             insetDataVentasSuccess();
+//         }
+//     })
+//     .fail(function(data) {
+//         console.log(data);
+//     });
+// };
+
+// const insetDataVentasSuccess = () => {
+//     frmInsertVentasClean();
+// };
+
+// const frmInsertVentasClean = () => {
+//     $('#frmInsertVentas')[0].reset();
+// };
+
+
 //Funcion del modals para seleccionar productos
 const showModalBox  = () => {
     $('#myModal').modal('show')
@@ -29,7 +73,6 @@ const loadTable = () => {
         ]
     }).DataTable();
 }
-
 //Seleccionar prductos de la tabla de de productos del modals
 function seleccionarProducto(nombre, categoria, precio) {
     // Construir la fila HTML con los datos del producto seleccionado
@@ -55,7 +98,7 @@ function calcularTotalVenta() {
         total += precio;
     });
 
-    $('#totalVentaContainer').text(total.toFixed(2));
+    $('#total_venta').text(total.toFixed(2));
 }
 
 $('#tablaVentas').on('click', '.btnEliminar', function() {
