@@ -39,11 +39,9 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
 		<div class="col-md-4">
 			<div class="BoxComponent">
 				<form id="frmInsertVentas" action="#" name="invenpro" method="post">
-					<div class="counter">
-						<div class="inner" style="text-align: center;">
-							<h3 style="font-weight: bold;">Cuenta Total:</sup></h3>
-							<div id="total_venta" style="font-size: 28px; font-weight: bold;" class="bg-dark p-3 rounded text-center"> </div>
-						</div>
+					<div class="inner" style="text-align: center;">
+						<h3 style="font-weight: bold;">Cuenta Total:</sup></h3>
+						<div id="total_venta" style="font-size: 28px; font-weight: bold;" class="bg-dark p-3 rounded text-center"> </div>
 					</div>
 					<div class="Btns ">
 						<button type="button" class="btn btnActions  btn-default btn-lg btnLimpiar">
@@ -114,6 +112,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registro'])) {
 ?>
 
 <script>
+	// Función para calcular el monto total de la venta
+	function calcularTotalVenta() {
+		var total = 0;
+		// Iterar sobre todas las filas de la tabla de ventas
+		$('#tablaVentas tbody tr').each(function() {
+			var precio = parseFloat($(this).find('td:eq(3)').text()); // Obtener el precio del producto en esta fila
+			total += precio; // Sumar el precio al total
+		});
+		// Actualizar el contenido del div "total_venta" con el total calculado
+		$('#total_venta').text(total.toFixed(2)); // Mostrar el total con dos decimales
+	}
+
+	// Llamar a la función cuando se cargue la página y cada vez que se agregue un producto
+	$(document).ready(function() {
+		calcularTotalVenta(); // Calcular el total al cargar la página
+		// Llamar a la función cada vez que se agregue un producto a la tabla de ventas
+		$('#tablaVentas').on('DOMSubtreeModified', function() {
+			calcularTotalVenta();
+		});
+	});
+
 	function calcularDevuelta() {
 		// Obtener el monto pagado y el total de la venta
 		var montoPagado = parseFloat(document.getElementById('calcularMonto').value);
@@ -124,12 +143,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registro'])) {
 
 		// Mostrar la devolución en el área correspondiente
 		var devolverDiv = document.getElementById('devolver');
-		devolverDiv.innerText = "Devolver: $ " + devuelta.toFixed(2);
-		devolverDiv.style.backgroundColor = '#dff0d8'; // Color de fondo verde claro
-		devolverDiv.style.color = '#3c763d'; // Color del texto verde oscuro
+		devolverDiv.innerText = "Devolver: $" + devuelta.toFixed(2);
+
+		// Aplicar la clase de estilos
+		devolverDiv.classList.add('devolver');
+		devolverDiv.style.backgroundColor = '#229954'; // Color de fondo verde claro
+		devolverDiv.style.color = '#FBFCFC '; // Color del texto verde oscuro
 		devolverDiv.style.padding = '10px'; // Espaciado interno
 		devolverDiv.style.marginTop = '20px'; // Espaciado superior
-		devolverDiv.style.borderRadius = '5px'; // Bordes redondeados
+		devolverDiv.style.borderRadius = '3px'; // Bordes redondeados
 		devolverDiv.style.textAlign = 'center'; // Alineación del texto
+		devolverDiv.style.fontSize = '18px';
 	}
+	// Agregar evento de clic al botón de limpiar
+	document.querySelector('.btnLimpiar').addEventListener('click', function() {
+		// Limpiar la tabla de ventas
+		document.getElementById('tablaVentas').getElementsByTagName('tbody')[0].innerHTML = '';
+
+		// Limpiar el input de cuenta total
+		document.getElementById('total_venta').innerText = '';
+
+		// Limpiar el input de calcular monto
+		document.getElementById('calcularMonto').value = '';
+
+		// Limpiar el área de devolución
+		document.getElementById('devolver').innerText = '';
+		document.getElementById('devolver').classList.remove('devolver'); // También eliminamos la clase de estilos si se aplicó
+
+		// Limpiar el select de método de pago
+		document.getElementsByName('metodo_pago')[0].selectedIndex = 0;
+	});
 </script>
