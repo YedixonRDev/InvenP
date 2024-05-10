@@ -1,47 +1,3 @@
-// $(document).ready(function() {
-//     onSubmitFrmInsertVentas();
-// });
-
-// const onSubmitFrmInsertVentas = () => {
-//     $('#frmInsertVentas').submit(function(e) {
-//         e.preventDefault();
-//         let venta = parseFloat($('#frmInsertTotalVenta').text());
-//         let pago = $('#frmInsertMetodoPago option:selected').text();
-//         let data = {
-//             "venta": venta,
-//             "pago": pago
-//         };
-//         sendDataInsertVentas(data);
-//     });
-// };
-
-// const sendDataInsertVentas = (sendData) => {
-//     $.ajax({
-//         type: 'POST',
-//         url: 'api/data/ventas.php',
-//         data: JSON.stringify(sendData),
-//         contentType: 'application/json',
-//         dataType: 'json'
-//     })
-//     .done(function(data) {
-//         if (data.status) {
-//             insetDataVentasSuccess();
-//         }
-//     })
-//     .fail(function(data) {
-//         console.log(data);
-//     });
-// };
-
-// const insetDataVentasSuccess = () => {
-//     frmInsertVentasClean();
-// };
-
-// const frmInsertVentasClean = () => {
-//     $('#frmInsertVentas')[0].reset();
-// };
-
-
 //Funcion del modals para seleccionar productos
 const showModalBox  = () => {
     $('#myModal').modal('show')
@@ -90,49 +46,6 @@ function seleccionarProducto(nombre, categoria, precio) {
     calcularTotalVenta();
 }
 
-//Calcular el precio total de la tabla
-function calcularTotalVenta() {
-    let total = 0;
-    $('#tablaVentas tbody tr').each(function() {
-        let precio = parseFloat($(this).find('td:eq(3)').text());
-        total += precio;
-    });
-
-    $('#total_venta').text(total.toFixed(2));
-}
-
-$('#tablaVentas').on('click', '.btnEliminar', function() {
-    $(this).closest('tr').remove();
-
-    calcularTotalVenta();
-});
-
-//Funcion para calcular el vuelto
-function calcularVuelto() {
-
-    calcularTotalVenta();
-    const cuentaTotal = parseFloat($('#totalVentaContainer').text());
-    const montoRecibido = parseFloat(document.getElementById("montoRecibido").value);
-
-    if (!isNaN(montoRecibido)) {
-        if (montoRecibido >= cuentaTotal) {
-            const vuelto = montoRecibido - cuentaTotal;
-            document.getElementById("vueltoSpan").textContent = "El cambio es: " + vuelto.toFixed(2);
-            vueltoSpan.textContent = "El cambio es: " + vuelto.toFixed(2);
-            //Estilos CSS para el mensaje del cambio.
-            vueltoSpan.style.color = "white";
-            vueltoSpan.style.backgroundColor = " #27AE60 ";
-            vueltoSpan.style.border = "1px solid darkgreen";
-            vueltoSpan.style.padding = "8px 16px";
-            vueltoSpan.style.marginTop = "16px";
-        } else {
-            alert("El monto recibido debe ser igual o mayor que la cuenta total.");
-        }
-    } else {
-        alert("Por favor, ingrese un monto recibido válido.");
-    }
-}
-
 // Evento clic para limpiar la tabla y reiniciar la suma total
 $('.btnLimpiar').on('click', function() {
     // Eliminar todas las filas de la tabla
@@ -141,6 +54,19 @@ $('.btnLimpiar').on('click', function() {
     calcularTotalVenta();
     limpiarFormulario();
 });
+
+	// Función para calcular el total de la venta
+	function calcularTotalVenta() {
+		let total = 0;
+		$('#tablaVentas tbody tr').each(function() {
+			let precio = parseFloat($(this).find('td:eq(3)').text());
+			total += precio;
+		});
+
+		// Actualizar el total de la venta en el input correspondiente
+		var totalFormateado = total.toFixed(2); // Formatear el total a dos decimales
+		$('#total_venta').val(totalFormateado); // Actualizar el total en el input
+	}
 
 function limpiarFormulario() {
     // Limpiar el select de método de pago
@@ -152,3 +78,19 @@ function limpiarFormulario() {
     // Limpiar el mensaje provisional de cambio
     document.getElementById("vueltoSpan").textContent = "";
 }
+
+function calcularDevuelta() {
+    // Obtener el monto pagado y el total de la venta
+    var montoPagado = parseFloat($('#calcularMonto').val());
+    var totalVenta = parseFloat($('#total_venta').text());
+
+    // Calcular la devolución
+    var devuelta = montoPagado - totalVenta;
+
+    // Mostrar la devolución en la interfaz
+    $('#vueltoSpan').text("Devuelta: $" + devuelta.toFixed(2));
+}
+// Asignar la función al evento click del botón para calcular la devolución
+$('#calcularDevueltaBtn').on('click', function() {
+    calcularDevuelta();
+});

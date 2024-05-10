@@ -71,3 +71,21 @@ const loadTableGastos = () => {
         ]
     }).DataTable();
 };
+
+$(document).ready(function() {
+    calcularTotal();
+
+    // Función para calcular el total de gastos
+    function calcularTotal() {
+        var total = 0;
+        // Recorrer cada fila de la tabla de gastos y sumar los montos
+        $('#tblGastos tbody tr').each(function() {
+            var monto = parseFloat($(this).find('td:eq(2)').text().replace('$', '').replace(',', ''));
+            if (!isNaN(monto)) {
+                total += monto;
+            }
+        });
+        // Mostrar el total en la página
+        $('#totalAmount').text(total.toFixed(2));
+    }
+});

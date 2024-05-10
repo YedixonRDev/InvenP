@@ -9,8 +9,10 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
 
 <form action="#" name="invenpro" method="post">
 
-   <input type="text" name="total_venta" placeholder="Total Venta">
-   <select type="text" name="metodo_pago" placeholder="Método de Pago">
+   <!-- Cambiar el input por un div -->
+   <div id="total_venta" contenteditable="true" placeholder="Total Venta">0</div>
+
+   <select name="metodo_pago" placeholder="Método de Pago">
       <option value="">Elija Medio de Pago</option>
       <option value="Efectivo">Efectivo</option>
       <option value="Transferencia">Transferencia</option>
@@ -21,11 +23,12 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
 
 </form>
 
+
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registro'])) {
-   if (isset($_POST['total_venta']) && isset($_POST['metodo_pago'])) {
-      $totalVenta = $_POST['total_venta'];
+   if (isset($_POST['total_venta_hidden']) && isset($_POST['metodo_pago'])) {
+      $totalVenta = $_POST['total_venta_hidden'];
       $metodoPago = $_POST['metodo_pago'];
 
       // Insertar datos en la tabla 'total_ventas'

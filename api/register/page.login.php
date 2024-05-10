@@ -29,7 +29,7 @@
    <div class="content-wrapper-register">
       <div class="register-form-box">
          <section class="content-header">
-            <h1 class="text-center">Iniciar Secion</h1>
+            <h1 class="text-center">Iniciar Sesión</h1>
          </section>
          <form id="frmInsertUser" method="post">
             <div class="form-group">
