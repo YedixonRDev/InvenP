@@ -1,12 +1,10 @@
 <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
+    <!-- sidebar: el estilo se puede encontrar en sidebar.less -->
     <section class="sidebar">
-        <!-- Sidebar user panel -->
-
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <!-- Panel de usuario del sidebar -->
+        <!-- Formulario de búsqueda (si lo hay) -->
+        <!-- Menú del sidebar: el estilo se puede encontrar en sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree" style="padding-top: 10px">
-
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
@@ -29,7 +27,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="gastos"><i class="fa fa-circle-o"></i> Registrar Gastos </a></li>
+                    <li><a href="gastos"><i class="fa fa-circle-o"></i> Registrar Gastos</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -41,9 +39,10 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="productos"><i class="fa fa-circle-o"></i> Registrar Productos </a></li>
+                    <li><a href="productos"><i class="fa fa-circle-o"></i> Registrar Productos</a></li>
                 </ul>
             </li>
+
         </ul>
     </section>
 </aside>

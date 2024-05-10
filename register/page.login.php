@@ -40,10 +40,7 @@
                <label for="password">Contraseña</label>
                <input type="password" name="password" id="frmInsertPassword" class="form-control" placeholder="Contraseña" required>
             </div>
-            <button type="submit" name="btningresar" class="btn btn-primary btn-block">Iniciar Seccion</button>
-            <?php
-            include "../controllers/controller.login.php"
-            ?>
+            <a href="../index.php" class="btn btn-primary btn-block">Iniciar Sesión</a>
             <button type="button" class="btn btn-secondary btn-block" onclick="window.location.href = 'page.register.php'">Crear Cuenta</button>
 
          </form>

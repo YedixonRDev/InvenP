@@ -2,7 +2,7 @@
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    // Incluir el archivo de conexión a la base de datos
-   require "../db/conection.php";
+   require "../api/db/conection.php";
 
    // Recuperar los datos del formulario
    $nombre = $_POST["nombre"];
